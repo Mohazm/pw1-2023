@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 11</title>
+</head>
+<body>
+    <h1>Mencari Luas dan keliling lingkaran</h1>
+
+    <input type="number" placeholder="Masukkan Jari Jari Lingkan" id="luas">
+    <button onclick="lingkaran()">Luas Lingkaran</button>
+    <p id="hasilluas">Hasil :  </p>
+    <br>
+    
+    <input type="number" placeholder="Masukkan Jari Jari Lingkaran" id="kll">
+    <button onclick="lingkaran()">Keliling Lingkaran</button>
+    <p id="hasilkll">Hasil : </p>
+
+
+    <script>
+        function lingkaran() {
+            document.getElementById('hasilluas').innerHTML=3.14*2*parseFloat(luas.value);
+
+            document.getElementById('hasilkll').innerHTML=3.14*parseFloat(Math.pow(kll.value, 2));
+        }
+    </script>
+</body>
+</html>
