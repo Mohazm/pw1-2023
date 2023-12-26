@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 12</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+
+            padding: 20px;
+        }
+
+        fieldset {
+            background-color: beige;
+            width: 50%;
+
+            justify-content: center;
+        }
+
+        #form {
+        width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form Pemesanan Tiket</h1>
+    <fieldset>
+        <form id="form">
+
+            <div class="form-group">
+                <label for="nama">Nama :</label>
+                <input type="text" id="nama" name="nama">
+                <span id="namaError" class="error"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email">
+                <span id="emailError" class="error"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="tiket">Jumlah Tiket :</label>
+                <input type="number" id="tiket" name="tiket" min="1" max="10">
+                <span id="tiketError" class="error"></span>
+                
+            </div>
+            
+            <div class="form-group">
+                <label for="waktu">Waktu Berangkat :</label>
+                <input type="time" id="waktu" name="waktu">
+                <span id="waktuError" class="error"></span>
+            </div>
+    
+            <button type="submit">Submit</button>
+    </fieldset>
+   
+
+    </form>
+
+
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var nama = document.getElementById("nama").value;
+            var email = document.getElementById("email").value;
+            var waktu = document.getElementById("waktu").value;
+            var tiket = document.getElementById("tiket").value;
+
+            var isValid = true;
+
+            if (nama === "") {
+                document.getElementById("namaError").innerHTML = "Isi terlebih dahulu!!!";
+                isValid = false;
+            } else {
+                document.getElementById("namaError").innerHTML = "";
+            }
+
+            if (email === "") {
+                document.getElementById("emailError").innerHTML = "Isi terlebih dahulu!!!";
+                isValid = false;
+            } else {
+                document.getElementById("emailError").innerHTML = "";
+            }
+
+            if (waktu === "") {
+                document.getElementById("waktuError").innerHTML = "Isi terlebih dahulu!!!";
+                isValid = false;
+            } else {
+                document.getElementById("waktuError").innerHTML = "";
+            }
+
+            if (tiket === "") {
+                document.getElementById("tiketError").innerHTML = "Isi terlebih dahulu!!!";
+                isValid = false;
+            } else {
+                document.getElementById("tiketError").innerHTML = "";
+            }
+
+            if (isValid) {
+                alert("Form Telah dikirim!");
+                document.getElementById("form").reset();
+            }
+        });
+    </script>
+</body>
+
+</html>
